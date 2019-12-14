@@ -28,7 +28,6 @@ class AddForeignKeyCitiesTable extends Migration
     {
         Schema::table('cities', function (Blueprint $table) {
             $table->dropForeign('cities_country_id_foreign');
-            $table->integer('country_id');
         });
     }
 }
