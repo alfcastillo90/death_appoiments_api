@@ -116,7 +116,6 @@ class VictimTest extends TestCase
             'address'=>$this->faker->address,
             'telephone'=>$this->faker->phoneNumber
         ]);
-        echo $request->baseResponse->content();
         $request->assertOk()->assertJson(['success'=>true]);
     }
 }
