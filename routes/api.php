@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +15,7 @@ Route::post('register','API\RegisterController@register');
 Route::post('login','API\RegisterController@login');
 Route::middleware('auth:api')->group(function(){
    Route::resource('countries','API\CountryController');
+   Route::resource('cities','API\CityController');
 });
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
