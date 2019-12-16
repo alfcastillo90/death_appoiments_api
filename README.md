@@ -7,4 +7,4 @@ REST API for scheduling appointments to have a dance with Death.
 - composer install
 - php artisan migrate:fresh --seed
 - php artisan passport:install
-- run test "./vendor/bin/phpunit"
+- "./vendor/bin/phpunit"
