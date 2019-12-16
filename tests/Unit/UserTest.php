@@ -21,6 +21,7 @@ class UserTest extends TestCase
             "password" => 123456,
             "c_password" => 123456
         ]);
+        echo $request->baseResponse->content();
         $request->assertOk();
         $request->assertJson(["success"=>true]);
     }
@@ -28,7 +29,7 @@ class UserTest extends TestCase
     public function testLoginSuccess()
     {
         $request = $this->post('api/login', [
-            "email" => "Milagros1@gmail.com",
+            "email" => "cacr1990@gmail.com",
             "password" => 123456
         ]);
         $request->assertOk();
