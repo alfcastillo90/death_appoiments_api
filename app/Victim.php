@@ -18,27 +18,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $address
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Appoiment[] $appoiments
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Appointment[] $appoiments
  * @property-read int|null $appoiments_count
  * @property-read \App\City $city_of_residence
  * @property-read \App\Country $country_of_birth
  * @property-read \App\IdentificationType $identification_type
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereCityOfResidenceId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereCountryOfBirthId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereIdentificationTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereIdentityNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereLastname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Victim whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ * @mixin \Illuminate\Database\Query\Builder
  */
+
 class Victim extends Model
 {
     protected $table = 'victims';
@@ -57,7 +47,7 @@ class Victim extends Model
 
     public function appointments()
     {
-        return $this->hasMany(Appoiment::class,'victim_id','id');
+        return $this->hasMany(Appointment::class,'victim_id','id');
     }
 
     public function city_of_residence()
