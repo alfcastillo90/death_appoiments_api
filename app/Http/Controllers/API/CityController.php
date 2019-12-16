@@ -6,7 +6,8 @@ use App\City;
 use Illuminate\Http\Request;
 use Validator;
 
-class CityController extends BaseController{
+class CityController extends BaseController
+{
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +15,8 @@ class CityController extends BaseController{
      */
     public function index()
     {
-        $countries = City::all();
-        return response()->json($countries);
+        $cities = City::all();
+        return response()->json($cities);
     }
 
     /**
