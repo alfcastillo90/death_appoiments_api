@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Appointment extends Model
 {
-    protected $table = 'appoiments';
-    protected $fillable = ['victim_id','is_dead'];
-    protected $dates = ['appointed_at','created_at','updated_at'];
+    protected $table = 'appointments';
+    protected $fillable = ['victim_id','appointed_at'];
+    protected $dates = ['created_at','updated_at'];
 }
