@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppoimentsTable extends Migration
+class CreateAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAppoimentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appoiments', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('victim_id');
-            $table->boolean('is_dead');
             $table->dateTime('appointed_at');
             $table->timestamps();
         });
