@@ -24,4 +24,10 @@ class Appointment extends Model
     protected $table = 'appointments';
     protected $fillable = ['victim_id','appointed_at'];
     protected $dates = ['created_at','updated_at'];
+
+    public function victim()
+    {
+        return $this->belongsTo(Victim::class,'victim_id','id');
+    }
+
 }

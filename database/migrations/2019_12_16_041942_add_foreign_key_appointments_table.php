@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppointmentsTable extends Migration
+class AddForeignKeyAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('victim_id');
-            $table->dateTime('appointed_at');
-            $table->timestamps();
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->foreign('victim_id')->references('id')->on('victims');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateAppointmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appoiments');
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->dropForeign('appointments_victim_id_foreign');
+        });
     }
 }
