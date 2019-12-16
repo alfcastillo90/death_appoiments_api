@@ -75,7 +75,9 @@ class IdentificationTypeTest extends TestCase
             ['identification_types']
         );
         $lastIdentificationType = IdentificationType::count();
-        $this->delete("api/identification_types/$lastIdentificationType")->assertOk()->assertJson(['success'=>true]);
+        $request = $this->delete("api/identification_types/$lastIdentificationType");
+        echo $request->content();
+        $request->assertOk()->assertJson(['success'=>true]);
     }
 
     public function testUpdateIdentificationType()

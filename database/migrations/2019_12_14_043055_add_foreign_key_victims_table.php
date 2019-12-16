@@ -16,12 +16,12 @@ class AddForeignKeyVictimsTable extends Migration
     {
         Schema::table('victims', function (Blueprint $table) {
             DB::transaction(function () use ($table) {
-                $table->unsignedBigInteger('identification_type_id')->change();
-                $table->unsignedBigInteger('city_of_residence_id')->change();
-                $table->unsignedBigInteger('country_of_birth_id')->change();
+                $table->unsignedBigInteger('identification_type_id')->nullable()->change();
+                $table->unsignedBigInteger('city_of_residence_id')->nullable()->change();
+                $table->unsignedBigInteger('country_of_birth_id')->nullable()->change();
                 $table->foreign('city_of_residence_id')->references('id')->on('cities');
                 $table->foreign('country_of_birth_id')->references('id')->on('countries');
-                $table->foreign('identification_type_id')->references('id')->on('identification_types');
+                $table->foreign('identification_type_id')->references('id')->on('identification_types')->onDelete('set null')->onUpdate('cascade');
             });
         });
     }

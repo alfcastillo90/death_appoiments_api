@@ -110,9 +110,14 @@ class IdentificationTypeController extends BaseController
      */
     public function destroy($id)
     {
-        $identificationType = IdentificationType::find($id);
-        $identificationType->delete();
-        $success['name'] = $identificationType->name;
-        return $this->sendResponse($success, 'IdentificationType successfully removed.');
+        try{
+            $identificationType = IdentificationType::find($id);
+            $identificationType->delete();
+            $success['name'] = $identificationType->name;
+            return $this->sendResponse($success, 'IdentificationType successfully removed.');
+        }catch (\Exception $exception){
+            return $this->sendError('Error',["message"=>$exception->getMessage(),"line"=>$exception->getLine()]);
+        }
+
     }
 }
