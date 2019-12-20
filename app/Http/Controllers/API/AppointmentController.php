@@ -17,7 +17,7 @@ class AppointmentController extends BaseController
      */
     public function index()
     {
-        $appoiments = Appointment::all();
+        $appoiments = Appointment::with('victim')->get();
         return response()->json($appoiments);
     }
 
