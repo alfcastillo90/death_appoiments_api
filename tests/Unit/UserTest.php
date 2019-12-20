@@ -21,6 +21,7 @@ class UserTest extends TestCase
             "password" => 123456,
             "c_password" => 123456
         ]);
+
         echo $request->baseResponse->content();
         $request->assertOk();
         $request->assertJson(["success"=>true]);
