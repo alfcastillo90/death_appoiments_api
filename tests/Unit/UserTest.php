@@ -29,7 +29,7 @@ class UserTest extends TestCase
     public function testLoginSuccess()
     {
         $request = $this->post('api/login', [
-            "email" => "cacr1990@gmail.com",
+            "username" => "cacr1990@gmail.com",
             "password" => 123456
         ]);
         $request->assertOk();
